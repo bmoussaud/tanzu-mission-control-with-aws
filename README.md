@@ -1,5 +1,7 @@
 # Tanzu Mission Control and AWS
 
+TMC = Tanzu Mission Control
+
 ## Inputs
 
 * MANAGEMENT_CLUSTER : the name of the management cluster (eg aws-hosted)
@@ -7,7 +9,9 @@
 * CLUSTER: the name of the cluster you want to connect to (eg. bmoussaud-aws-tmc-1)
 
 
-## Create a cluster
+## Cluster 
+
+### Create a cluster
 
 1. Edit the `cluster.yaml` file and modify it depending your context. 
 
@@ -28,7 +32,7 @@ fullName:
 tmc cluster get -m $(MANAGEMENT_CLUSTER) -p $(PROVISIONER) $(CLUSTER) 
 ````
 
-## Connect to your cluster
+### Connect to your cluster
 
 1. Command Line: 
 
@@ -43,3 +47,8 @@ tmc cluster auth  kubeconfig get -m ${MANAGEMENT_CLUSTER} -p ${PROVISIONER} ${CL
 kubectl --kubeconfig=.localkubeconfig get namespaces
 ```
 
+### Delete a Cluster
+
+````
+tmc cluster delete -m $(MANAGEMENT_CLUSTER) -p $(PROVISIONER) $(CLUSTER)
+````
